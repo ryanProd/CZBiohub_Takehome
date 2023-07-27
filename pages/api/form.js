@@ -9,7 +9,6 @@ export default function handler(req, res){
         let next;
 
         for (let i = 1; i <= n; i++) {
-            console.log(x);
             fibNumbers.push(x);
             next = x + y;
             x = y;

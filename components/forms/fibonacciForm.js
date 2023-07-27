@@ -1,7 +1,12 @@
+import { useRouter } from 'next/router'
+
 export default function FibonacciForm() {
+    const router = useRouter()
+
     const handleSubmit = async (event) => {
 
         event.preventDefault();
+
 
         const form = event.target;
 
@@ -20,8 +25,10 @@ export default function FibonacciForm() {
         });
 
         const result = await response.json();
-        alert(`Check: ${result.data}`);
-
+        //alert(`Check: ${result.data}`)
+        if (result != null){
+            router.push('/result');
+        }
     }
 
     return (
