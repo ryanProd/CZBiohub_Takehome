@@ -1,5 +1,10 @@
 import { sql } from '@vercel/postgres';
 
+/*
+API Route used to create tables in database
+Function was used by visiting route path 'http://localhost:3000/api/create-fibnumbers-table'
+*/
+
 export default async function handler(request, response) {
     try{
         const result = 

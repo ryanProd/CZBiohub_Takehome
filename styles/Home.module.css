@@ -1,7 +1,8 @@
 .container {
   min-height: 100vh;
+  max-width: 1000px;
+  overflow-wrap: break-word;
   padding: 0 0.5rem;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;

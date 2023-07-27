@@ -1,15 +1,23 @@
 import { useRouter } from 'next/router'
 
+/*
+Form that accepts user input to compute first n Fibonacci numbers.
+*/
+
+
 export default function FibonacciForm() {
     const router = useRouter()
     
     const handleSubmit = async (event) => {
 
+        //Stop the form's default submit action which would refresh the page.
         event.preventDefault();
 
+        //Grabbing user input.
         const form = event.target;
         const val = form.fibInput.value;
 
+        //Validation rejects non Integer inputs.
         if (!val) {
             alert('Please enter value');
             return false;
@@ -25,7 +33,7 @@ export default function FibonacciForm() {
             return false;
         }
 
-        if (Number(val) < 0){
+        if (Number(val) <= 0){
             alert('Please enter a positive number');
             return false;
         }
@@ -34,6 +42,7 @@ export default function FibonacciForm() {
             fibInput: val
         };
 
+        //Send form data to API route.
         const response = await fetch('/api/form', {
             body: JSON.stringify(data),
 
@@ -44,6 +53,8 @@ export default function FibonacciForm() {
             method: 'POST',
         });
 
+        //Jsonify response and redirect to result page while passing along returned Fibonacci numbers in query parameters
+        //Reference for router functionality: https://nextjs.org/docs/pages/api-reference/functions/use-router
         const result = await response.json();
         if (result != null){
             router.push({
