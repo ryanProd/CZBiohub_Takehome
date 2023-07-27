@@ -7,7 +7,6 @@ export default function FibonacciForm() {
 
         event.preventDefault();
 
-
         const form = event.target;
 
         const data = {
@@ -27,8 +26,11 @@ export default function FibonacciForm() {
         const result = await response.json();
         //alert(`Check: ${result.data}`)
         if (result != null){
-            router.push('/result');
-        }
+            router.push({
+                pathname: '/result',
+                query: { data: result.data }
+            });
+        };
     }
 
     return (

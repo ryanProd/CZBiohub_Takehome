@@ -1,6 +1,5 @@
 import styles from '../styles/Home.module.css';
 import FibonacciForm from '../components/forms/fibonacciForm';
-import { useRouter } from 'next/router'
 
 export default function Home() {
 
